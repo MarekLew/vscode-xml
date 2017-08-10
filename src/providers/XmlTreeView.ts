@@ -114,7 +114,7 @@ export class XmlTreeViewDataProvider implements vsc.TreeDataProvider<Node> {
     }
 
     private _refreshTree(): void {
-        if (!this.activeEditor || this.activeEditor.document.languageId !== "xml") {
+        if (!this.activeEditor || (this.activeEditor.document.languageId !== "xml" && this.activeEditor.document.languageId !== "xsl")) {
             this._xmlDocument = null;
             this._onDidChangeTreeData.fire();
             return;
